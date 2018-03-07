@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Post an Event - DragonQuad</title>
+	<title>Post a Product - DragonQuad</title>
     <h2>Post an Item</h2>
     <p>
     	Attach your files below. <br>
@@ -9,16 +9,18 @@
     </p>
 </head>
 <body>
-	Product Name : <input type = "text" name = "product name"><br>
-	Product Description : <br><textarea rows = "4" cols = "50" id = "product description"></textarea> <br>
-	Price : <input type = "text" name = "product price" size = "3"><br>
-	<input type = "checkbox" value = "fixed price"> Fixed Price <br>
-	<progress value="0" max="100" id="uploader">0%</progress>
-	<input type="file" value="upload" accept="image/*" id="fileButton"><br>
-	<input type = "checkbox" value = "terms and conditions"> I agree to all the Terms and Conditions<br>
-	<input type = "submit">
-    
-	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	Product Title: <input type ="text" name="product name" id="productTitle"><br>
+	Product Description: <br><textarea rows = "4" cols = "50" id="productDes"></textarea>
+    <br>
+	Price : <input type="text" name="product price" size = "3" id="productPrice">
+    <br>
+	<input type="file" value="upload" accept="image/*" id="fileButton">
+    <br>
+    <input type="checkbox"> I agree to all the Terms and Conditions
+    <br>
+	<button type="submit" class="btn btn-default">Submit</button>
+	
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script>
 		// Initialize Firebase
 		var config = {
@@ -34,10 +36,28 @@
 	<script type="text/javascript">
 
 		// get elements
-		var uploader = document.getElementById('uploader');
+        
 		var fileButton = document.getElementById('fileButton');
+        var submit = document.getElementById('submit');
+        var database = firebase.database();
+     
+        // Reference product in Database
+        var product = firebase.database().ref("product");
 
-		// listen for file selection
+        // Save product details to Database
+        //var submitProduct = function () {
+          //  var productTitle = $("#productTitle").val();
+            //var productDes = $("#productDes").val();
+            //var productPrice = $("#productPrice").val();
+            //product.push({
+                //"productTitle": productTitle,
+                //"productDes": productDes,
+                //"productPrice": productPrice
+            //});
+        //};
+          //  $("#productForm").submit(submitProduct);
+        
+		// Listen for file selection
 		fileButton.addEventListener('change', function (e) {
 
 			// output to console
@@ -47,49 +67,10 @@
 			var file = e.target.files[0];
 
 			// storage ref
-			var storageRef = firebase.storage().ref('eventImages/' + file.name );
+			var storageRef = firebase.storage().ref('productImages/' + file.name );
 
 			// upload file (POST command)
-			var uploadTask = storageRef.put(file);
-
-			// update progress bar
-			uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-				function (snapshot) {
-					// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-					var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-					uploader.value = progress;
-					console.log('Upload is ' + progress + '% done');
-					switch (snapshot.state) {
-						case firebase.storage.TaskState.PAUSED: // or 'paused'
-							console.log('Upload is paused');
-							break;
-						case firebase.storage.TaskState.RUNNING: // or 'running'
-							console.log('Upload is running');
-							break;
-					}
-				}, function (error) {
-
-					// A full list of error codes is available at
-					// https://firebase.google.com/docs/storage/web/handle-errors
-					switch (error.code) {
-						case 'storage/unauthorized':
-							// User doesn't have permission to access the object
-							break;
-
-						case 'storage/canceled':
-							// User canceled the upload
-							break;
-
-						case 'storage/unknown':
-							// Unknown error occurred, inspect error.serverResponse
-							break;
-					}
-				}, function () {
-					// Upload completed successfully, now we can get the download URL
-					// save this link somewhere, e.g. put it in an input field
-					var downloadURL = uploadTask.snapshot.downloadURL;
-					console.log('downloadURL', downloadURL);
-				});
+			var submit = storageRef.put(file);   
 
 		});
 	</script>

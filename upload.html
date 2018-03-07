@@ -2,11 +2,21 @@
 <html>
 <head>
 	<title>Post an Event - DragonQuad</title>
-    <h2>Post an Event</h2>
+    <h2>Post an Item</h2>
+    <p>
+    	Attach your files below. <br>
+    	<em>Acceptable formats - <b>.png, .jpeg</b></em>
+    </p>
 </head>
 <body>
+	Product Name : <input type = "text" name = "product name"><br>
+	Product Description : <br><textarea rows = "4" cols = "50" id = "product description"></textarea> <br>
+	Price : <input type = "text" name = "product price" size = "3"><br>
+	<input type = "checkbox" value = "fixed price"> Fixed Price <br>
 	<progress value="0" max="100" id="uploader">0%</progress>
-	<input type="file" value="upload" accept="image/*" id="fileButton">
+	<input type="file" value="upload" accept="image/*" id="fileButton"><br>
+	<input type = "checkbox" value = "terms and conditions"> I agree to all the Terms and Conditions<br>
+	<input type = "submit">
     
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script>

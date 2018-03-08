@@ -18,7 +18,7 @@
     <br>
     <input type="checkbox"> I agree to all the Terms and Conditions
     <br>
-	<button type="submit" class="btn btn-default">Submit</button>
+	<button type="submit" class="btn btn-default" id="submitButton">Submit</button>
 	
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script>
@@ -44,6 +44,12 @@
         // Reference product in Database
         var product = firebase.database().ref("product");
 
+        var DocumentRef = db.collection('rent').doc(rentTitle);
+        
+        var productTitle = document.getElementById('productTitle').value
+        var productDes = document.getElementById('productDes').value
+        var productPrice = document.getElementById('price').value
+        
         // Save product details to Database
         //var submitProduct = function () {
           //  var productTitle = $("#productTitle").val();
@@ -58,19 +64,19 @@
           //  $("#productForm").submit(submitProduct);
         
 		// Listen for file selection
-		fileButton.addEventListener('change', function (e) {
+		submitButton.addEventListener('onsubmit', function (e) {
 
 			// output to console
-			console.log('file upload event', e);
+			console.log('success. added to db ', e);
 
 			// get file
 			var file = e.target.files[0];
 
 			// storage ref
-			var storageRef = firebase.storage().ref('productImages/' + file.name );
+			var storageRef = firebase.storage().ref('productImages/' + file.name);
 
 			// upload file (POST command)
-			var submit = storageRef.put(file);   
+			var submit = storageRef.put(file); 
 
 		});
 	</script>

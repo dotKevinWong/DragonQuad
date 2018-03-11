@@ -38,33 +38,22 @@
 		// get elements
         
 		var fileButton = document.getElementById('fileButton');
-        var submit = document.getElementById('submit');
-        var database = firebase.database();
      
         // Reference product in Database
-        var product = firebase.database().ref("product");
-
-        var DocumentRef = db.collection('rent').doc(rentTitle);
+        var productRef = firebase.database().ref().child('rentProducts');
         
-        var productTitle = document.getElementById('productTitle').value
-        var productDes = document.getElementById('productDes').value
-        var productPrice = document.getElementById('price').value
-        
-        // Save product details to Database
-        //var submitProduct = function () {
-          //  var productTitle = $("#productTitle").val();
-            //var productDes = $("#productDes").val();
-            //var productPrice = $("#productPrice").val();
-            //product.push({
-                //"productTitle": productTitle,
-                //"productDes": productDes,
-                //"productPrice": productPrice
-            //});
-        //};
-          //  $("#productForm").submit(submitProduct);
+        // GET
+        $('#submitButton').click(function(){
+            productRef.set({
+                productTitle:$('#productTitle').val(),
+                productDes:$('#productDes.val').val(),
+                productPrice:$('#porductPrice').val(),
+                
+            })
+        })
         
 		// Listen for file selection
-		submitButton.addEventListener('onsubmit', function (e) {
+		// submitButton.addEventListener('click', function (e) {
 
 			// output to console
 			console.log('success. added to db ', e);

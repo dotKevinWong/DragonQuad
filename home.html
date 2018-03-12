@@ -7,52 +7,160 @@
   	<meta name="keywords" content="website keywords, website keywords" />
   	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   	<link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+  	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 </head>
 
 <body>
-	<div id = "main">
-		<div id = "header">
-			<div id = "logo">
-				<div id = "logo_text">
-					<h1>DragonQuad</h1>
-					<h3>Where students exchange</h3>
-				</div>
-			</div>
-		</div>
-	</div>
+	<header>
+		<header>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <head>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<style>
+				body {
+				    font-family: "Lato", sans-serif;
+				}
 
-	<div id = "site_content">
-		<div class = "topbar">
-			<h8>Rent</h8>
-			<h8>Gigs</h8>
-			<h8>Events</h8>
-		</div>
-		<div class = "sidebar">
-			<li><a href = "upload.html"><b>Upload a Product </b></a></li>
-			<li><a href = "#">Something to link to </a></li>
-			<li><a href = "#">Something to link to </a></li>
-		</div>
+				.sidenav {
+				    height: 100%;
+				    width: 0;
+				    position: fixed;
+				    z-index: 1;
+				    top: 0;
+				    left: 0;
+				    background-color: #111;
+				    overflow-x: hidden;
+				    transition: 0.5s;
+				    padding-top: 60px;
+				}
+
+				.sidenav a {
+				    padding: 8px 8px 8px 32px;
+				    text-decoration: none;
+				    font-size: 25px;
+				    color: #818181;
+				    display: block;
+				    transition: 0.3s;
+				}
+
+				.sidenav a:hover {
+				    color: #f1f1f1;
+				}
+
+				.sidenav .closebtn {
+				    position: absolute;
+				    top: 0;
+				    right: 25px;
+				    font-size: 36px;
+				    margin-left: 50px;
+				}
+
+				@media screen and (max-height: 450px) {
+				  .sidenav {padding-top: 15px;}
+				  .sidenav a {font-size: 18px;}
+				}
+				</style>
+				</head>
+				<body>
+
+				<div id="mySidenav" class="sidenav">
+				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				  <a href="upload.html">Upload</a>
+				</div>
+				<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+				<script>
+				function openNav() {
+				    document.getElementById("mySidenav").style.width = "250px";
+				}
+
+				function closeNav() {
+				    document.getElementById("mySidenav").style.width = "0";
+				}
+				</script>
+				     
+				</body>
+				</html> 
+				</head>
+		    </div>
+		    <a class="navbar-brand" href="#">DragonQuad</a>
+
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="home.html">Rent<span class="sr-only">(current)</span></a></li>
+		        <li><a href="#">Events</a></li>
+		        <li><a href="#">Gigs</a></li>
+		        <li class="dropdown">
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-left">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+		      </form>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</header>
+	
 
 		<div id = "main content">
 			<div class = "images">
 			<figure>
-				<p><img src = "https://www.staples-3p.com/s7/is/image/Staples/s0490064_sc7?$splssku$" width = "200" height = "200" alt = "sample 1 of a calculator">
+				<li><img src = "https://www.staples-3p.com/s7/is/image/Staples/s0490064_sc7?$splssku$" width = "200" height = "200" alt = "sample 1 of a calculator">
 					<figcaption>
 						<a href = "#">Casio Scientific Calculator</a>
-						<p> Student name and price. </p>
+						<li> Student name and price. </li>
 					</figcaption>
-				</p>
+				</li>
 			</figure>
 			<figure>
-				<p><img src = "https://www1.alibris-static.com/calculus/isbn/9780521867443_l.jpg" width = "200" height = "200" alt = "sample 2">
+				<li><img src = "https://www1.alibris-static.com/calculus/isbn/9780521867443_l.jpg" width = "200" height = "200" alt = "sample 2">
 					<figcaption><a href = "#">Calculus 2 textbook</a></figcaption>
-				</p>
+				</li>
 			</figure>
 			<figure>
-				<p><img src = "https://cdn.shopify.com/s/files/1/1998/3907/products/smark_1400x.jpg?v=1498189319" width = "200" height = "200" alt = "sample 2">
+				<li><img src = "https://cdn.shopify.com/s/files/1/1998/3907/products/smark_1400x.jpg?v=1498189319" width = "200" height = "200" alt = "sample 2">
 					<figcaption><a href = "#">Electric Kettle</a></figcaption>
-				</p>
+				</li>
 			</figure>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
-<a [routerLink]="['/listings']">Back</a>
-<br />
-<h2 class="page-header">Add Product</h2>
+<a class="btn btn-secondary btn-sm" [routerLink]="['/listings']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+<br>
+<br>
+<h2 class="page-header">Edit Product</h2>
 <form (submit)="onAddSubmit()">
   <div class="form-group">
     <label>Title</label>
@@ -8,22 +9,22 @@
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input class="form-control" type="text" [(ngModel)]="description" name="description" required>
+      <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
   </div>
   <div class="form-group">
     <label>Listing Type</label>
     <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
-      <option value="Estate">Rent</option>
-      <option value="Condo">Sell</option>
+      <option value="Rent">Rent</option>
+      <option value="Sell">Sell</option>
     </select>
   </div>
   <div class="form-group">
     <label>Condition</label>
     <select class="form-control" type="text" [(ngModel)]="condition" name="condition" required>
-      <option value="Estate">New</option>
-      <option value="Condo">Refurbished</option>
-      <option value="Condo">Used</option>
-      <option value="Condo">As Is</option>
+      <option value="New">New</option>
+      <option value="Refurbished">Refurbished</option>
+      <option value="Used">Used</option>
+      <option value="As Is">As Is</option>
     </select>
   </div>
   <div class="form-group">
@@ -36,8 +37,8 @@
   <div class="form-group">
     <label>Payments Accepted</label>
     <select class="form-control" type="text" [(ngModel)]="payment" name="payment" required>
-      <option value="Estate">Cash</option>
-      <option value="Condo">Payment App (i.e. Venmo, Cash App)</option>
+      <option value="Cash">Cash</option>
+      <option value="Payment App (i.e. Venmo, Cash App)">Payment App (i.e. Venmo, Cash App)</option>
     </select>
   </div>
   <input type="submit" value="submit" class="btn btn-success">

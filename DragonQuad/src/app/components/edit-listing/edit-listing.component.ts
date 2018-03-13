@@ -10,12 +10,12 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 export class EditListingComponent implements OnInit {
   id;
   title;
-  owner;
-  city;
-  bedrooms;
+  description;
+  type;
+  condition;
   price;
   image;
-  type;
+  payment;
 
   constructor(
     private firebaseService:FirebaseService,
@@ -28,22 +28,22 @@ export class EditListingComponent implements OnInit {
 
     this.firebaseService.getListingDetails(this.id).subscribe(listing => {
       this.title = listing.title;
-      this.owner = listing.owner;
-      this.city = listing.city;
-      this.bedrooms = listing.bedrooms;
-      this.price = listing.price;
+      this.description = listing.description;
       this.type = listing.type;
+      this.condition = listing.condition;
+      this.price = listing.price;
+      this.payment = listing.payment;
     });
   }
 
   onEditSubmit(){
     let listing = {
         title: this.title,
-        owner: this.owner,
-        city: this.city,
-        bedrooms: this.bedrooms,
+        description: this.description,
+        type: this.type,
+        condition:this.condition,
         price: this.price,
-        type: this.type
+        payment: this.payment
     }
 
     this.firebaseService.updateListing(this.id, listing);

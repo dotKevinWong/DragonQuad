@@ -1,21 +1,26 @@
 <div *ngIf="listing">
-  <a [routerLink]="['/listings']">Go Back</a>
-  <br>
-  <h2 class="page-header">{{listing.title}} <small>{{listing.price}}</small></h2>
-  <div class="row">
-    <div class="col-md-4">
-      <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/listings']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+    <br>
+    <br>
+    <h2 class="page-header">{{listing.title}} <small>{{listing.price}}</small></h2>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item">Price: {{listing.price}}</li>
+                <li class="list-group-item">Condition: {{listing.condition}}</li>
+                <li class="list-group-item">Description: <br>
+            {{listing.description}}</li>
+                <li class="list-group-item">Type: {{listing.type}}</li>
+                <li class="list-group-item">Payment: {{listing.payment}}</li>
+            </ul>
+        </div>
     </div>
-    <div class="col-md-8">
-      <ul class="list-group">
-        <li class="list-group-item">Price: {{listing.price}}</li>
-        <li class="list-group-item">Condition: {{listing.condition}}</li>
-        <li class="list-group-item">Description: {{listing.description}}</li>
-        <li class="list-group-item">Type: {{listing.type}}</li>
-        <li class="list-group-item">Payment: {{listing.payment}}</li>
-      </ul>
-    </div>
-    <a class="btn btn-default" [routerLink]="['/edit-listing/'+listing.$key]">Edit</a>
-    <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
-  </div>
+    <br>
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-listing/'+listing.$key]">Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
 </div>

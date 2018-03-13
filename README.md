@@ -34,7 +34,7 @@ $ npm install firebase angularfire2
 
 ## On Windows: ##
 #### Installing NodeJS: ####
-Install [NodeJS] (https://nodejs.org/en/download/) using the executable
+Install [NodeJS](https://nodejs.org/en/download/) using the executable
 #### Installing Angular-CLI: ####
 ```
 $ npm install angular-cli

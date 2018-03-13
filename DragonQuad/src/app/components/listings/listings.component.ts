@@ -12,10 +12,11 @@ export class ListingsComponent implements OnInit {
   constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit() {
+    
     this.firebaseService.getListings().subscribe(listings => {
       console.log(listings);
       this.listings = listings;
-    });
+    
+  });
   }
-
 }

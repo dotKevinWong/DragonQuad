@@ -51,7 +51,7 @@ interface Listing{
   title?:string;
   type?:string;
   image?:string;
-  city?:string;
-  owner?:string;
-  bedrooms?:string;
+  description?:string;
+  payment?:string;
+  condition?:string;
 }

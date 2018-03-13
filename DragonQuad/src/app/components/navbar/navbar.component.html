@@ -1,5 +1,4 @@
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" [routerLink]="['/']">DragonQuad</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -13,7 +12,6 @@
               <a class="nav-link" [routerLink]="['/listings']">Products</a>
             </li>
           </ul>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a [routerLink]="['/add-listing']">Add Product</a></button>
+            <a class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-listing']" role="button">Add Product</a>
         </div>
       </nav>
-</header>

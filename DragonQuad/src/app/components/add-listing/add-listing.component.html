@@ -1,36 +1,29 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <a [routerLink]="['/listings']">Back</a>
 <br />
-<h2 class="page-header">Add Listing</h2>
+<h2 class="page-header">Add Product</h2>
 <form (submit)="onAddSubmit()">
   <div class="form-group">
     <label>Title</label>
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
   </div>
   <div class="form-group">
-    <label>City</label>
-    <input class="form-control" type="text" [(ngModel)]="city" name="city" required>
+    <label>Description</label>
+      <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
   </div>
   <div class="form-group">
-    <label>Owner</label>
-    <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
-  </div>
-  <div class="form-group">
-    <label>Bedrooms</label>
-    <input class="form-control" type="number" [(ngModel)]="bedrooms" name="bedrooms" required>
-  </div>
-  <div class="form-group">
-    <label>Type</label>
+    <label>Listing Type</label>
     <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
-      <option value="Estate">Estate</option>
-      <option value="Condo">Condo</option>
-      <option value="Apartment">Apartment</option>
+      <option value="Rent">Rent</option>
+      <option value="Sell">Sell</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Condition</label>
+    <select class="form-control" type="text" [(ngModel)]="condition" name="condition" required>
+      <option value="New">New</option>
+      <option value="Refurbished">Refurbished</option>
+      <option value="Used">Used</option>
+      <option value="As Is">As Is</option>
     </select>
   </div>
   <div class="form-group">
@@ -39,6 +32,13 @@
   <div class="form-group">
     <label>Price</label>
     <input class="form-control" type="text" [(ngModel)]="price" name="price" required>
+  </div>
+  <div class="form-group">
+    <label>Payments Accepted</label>
+    <select class="form-control" type="text" [(ngModel)]="payment" name="payment" required>
+      <option value="Cash">Cash</option>
+      <option value="Payment App (i.e. Venmo, Cash App)">Payment App (i.e. Venmo, Cash App)</option>
+    </select>
   </div>
   <input type="submit" value="submit" class="btn btn-success">
 </form>

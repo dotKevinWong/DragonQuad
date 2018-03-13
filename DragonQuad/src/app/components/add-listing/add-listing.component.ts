@@ -9,11 +9,11 @@ import {Router} from '@angular/router';
 })
 export class AddListingComponent implements OnInit {
   title:any;
-  owner:any;
-  city:any;
-  bedrooms:any;
-  price:any;
+  description:any;
   type:any;
+  condition:any;
+  price:any;
+  payment:any;
   image:any;
 
   constructor(
@@ -27,11 +27,11 @@ export class AddListingComponent implements OnInit {
   onAddSubmit(){
     let listing = {
       title: this.title,
-      city: this.city,
-      owner: this.owner,
-      bedrooms:this.bedrooms,
+      description: this.description,
+      type: this.type,
+      condition:this.condition,
       price: this.price,
-      type: this.type
+      payment: this.payment
     }
 
     this.firebaseService.addListing(listing);

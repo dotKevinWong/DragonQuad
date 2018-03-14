@@ -2,7 +2,7 @@
 <br>
 <br>
 <h2 class="page-header">Edit Product</h2>
-<form (submit)="onAddSubmit()">
+<form (submit)="onEditSubmit()">
   <div class="form-group">
     <label>Title</label>
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
@@ -29,7 +29,7 @@
   </div>
   <div class="form-group">
     <label>Price</label>
-    <input class="form-control" type="text" [(ngModel)]="price" name="price" required>
+    <input class="form-control" type="number" step="0.01" value='0.00' placeholder='0.00' [(ngModel)]="price" name="price" required>
   </div>
   <div class="form-group">
     <label>Payments Accepted</label>

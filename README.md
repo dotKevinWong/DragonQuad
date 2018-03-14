@@ -11,11 +11,12 @@ $ brew install node
 ```
 #### Installing Angular-CLI: ####
 ```
-$ npm install angular-cli
+$ npm install -g @angular/cli
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ npm install firebase angularfire2
+$ cd DragonQuad/DragonQuad
+$ npm install firebase angularfire2 angular2-flash-messages --save
 ```
 
 ## On Linux (Debian): ##
@@ -25,11 +26,12 @@ $ apt-get install node
 ```
 #### Installing Angular-CLI: ####
 ```
-$ npm install angular-cli
+$ npm install -g @angular/cli
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ npm install firebase angularfire2
+$ cd DragonQuad/DragonQuad
+$ npm install firebase angularfire2 angular2-flash-messages --save
 ```
 
 ## On Windows: ##
@@ -37,9 +39,10 @@ $ npm install firebase angularfire2
 Install [NodeJS](https://nodejs.org/en/download/) using the executable
 #### Installing Angular-CLI: ####
 ```
-$ npm install angular-cli
+$ npm install -g @angular/cli
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ npm install firebase angularfire2
+$ cd DragonQuad/DragonQuad
+$ npm install firebase angularfire2 angular2-flash-messages --save
 ```

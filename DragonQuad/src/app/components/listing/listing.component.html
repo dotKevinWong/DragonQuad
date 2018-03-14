@@ -2,7 +2,7 @@
     <a class="btn btn-secondary btn-sm" [routerLink]="['/listings']" role="button"><i class="fas fa-angle-left"></i> Back</a>
     <br>
     <br>
-    <h2 class="page-header">{{listing.title}} <small>{{listing.price}}</small></h2>
+    <h2 class="page-header">{{listing.title}} <small>${{listing.price}}</small></h2>
     <br>
     <div class="row">
         <div class="col-md-4">
@@ -10,12 +10,12 @@
         </div>
         <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item">Price: {{listing.price}}</li>
-                <li class="list-group-item">Condition: {{listing.condition}}</li>
-                <li class="list-group-item">Description: <br>
+                <li class="list-group-item"><strong>Price:</strong> ${{listing.price}}</li>
+                <li class="list-group-item"><strong>Condition:</strong> {{listing.condition}}</li>
+                <li class="list-group-item"><strong>Description:</strong> <br>
             {{listing.description}}</li>
-                <li class="list-group-item">Type: {{listing.type}}</li>
-                <li class="list-group-item">Payment: {{listing.payment}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{listing.type}}</li>
+                <li class="list-group-item"><strong>Payment Accepted:</strong> {{listing.payment}}</li>
             </ul>
         </div>
     </div>

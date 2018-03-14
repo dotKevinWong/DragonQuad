@@ -28,9 +28,6 @@
     </select>
   </div>
   <div class="form-group">
-    <input id="image" name="image" [(ngModel)]="image" type="file" >
-  </div>
-  <div class="form-group">
     <label>Price</label>
     <input class="form-control" type="text" [(ngModel)]="price" name="price" required>
   </div>
@@ -38,8 +35,9 @@
     <label>Payments Accepted</label>
     <select class="form-control" type="text" [(ngModel)]="payment" name="payment" required>
       <option value="Cash">Cash</option>
-      <option value="Payment App (i.e. Venmo, Cash App)">Payment App (i.e. Venmo, Cash App)</option>
+      <option value="Cash & Payment App">Cash &amp; Payment App</option>
+      <option value="Payment App">Payment App</option>
     </select>
   </div>
-  <input type="submit" value="submit" class="btn btn-success">
+  <input type="submit" value="Submit" class="btn btn-success">
 </form>

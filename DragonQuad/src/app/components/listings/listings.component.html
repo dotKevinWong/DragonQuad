@@ -5,7 +5,7 @@
 </ul>
 -->
 <div *ngFor="let listing of listings" [routerLink]="[listing.$key]">
-    <div class="row">
+<div ng-repeat="listing in listings" ng-if="$index % 3 == 0" class="row">
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
                 <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/listingimages%2F{{listing.image}}?alt=media&token=7360f644-f180-4225-9513-ccb5d57188cd">

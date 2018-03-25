@@ -5,13 +5,17 @@ DragonQuad is built using NodeJS with the Angular-CLI, AngularFire, and Firebase
 You will need to install these packages on your local machine in order to run the code.
 
 ## On macOS: ## 
+#### Installing the Homebrew Package Manager ####
+````
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+````
 #### Installing NodeJS (Homebrew): ####
 ```
 $ brew install node
 ```
 #### Installing Angular-CLI: ####
 ```
-$ npm install -g @angular/cli
+$ npm install -g @angular/cli@latest
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
@@ -27,7 +31,7 @@ $ apt-get install nodejs
 ```
 #### Installing Angular-CLI: ####
 ```
-$ npm install -g @angular/cli
+$ npm install -g @angular/cli@latest
 ```
 #### Installing AngularFire2 & Firebase ####
 ```

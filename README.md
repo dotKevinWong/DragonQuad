@@ -19,7 +19,7 @@ $ npm install -g @angular/cli@latest
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ cd DragonQuad/DragonQuad
+$ cd ~/DragonQuad
 $ npm install firebase angularfire2 angular2-flash-messages --save
 ```
 
@@ -35,7 +35,7 @@ $ npm install -g @angular/cli@latest
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ cd DragonQuad/DragonQuad
+$ cd ~/DragonQuad
 $ npm install firebase angularfire2 angular2-flash-messages --save
 ```
 
@@ -48,6 +48,6 @@ $ npm install -g @angular/cli
 ```
 #### Installing AngularFire2 & Firebase ####
 ```
-$ cd DragonQuad/DragonQuad
+$ cd ~DragonQuad
 $ npm install firebase angularfire2 angular2-flash-messages --save
 ```

@@ -3,11 +3,11 @@ import {FirebaseService} from '../../services/firebase.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-add-listing',
-  templateUrl: './add-listing.component.html',
-  styleUrls: ['./add-listing.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
-export class AddListingComponent implements OnInit {
+export class AddProductComponent implements OnInit {
   title:any;
   description:any;
   type:any;
@@ -34,7 +34,7 @@ export class AddListingComponent implements OnInit {
       payment: this.payment
     }
 
-    this.firebaseService.addListing(listing);
+    this.firebaseService.addProduct(listing);
 
     this.router.navigate(['listings']);
   }

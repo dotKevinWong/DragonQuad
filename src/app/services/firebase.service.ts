@@ -9,7 +9,7 @@ export class FirebaseService {
   folder: any;
 
   constructor(private af: AngularFire) {
-    this.folder = 'listingimages';
+    this.folder = 'productImages';
     this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>
   }
 
@@ -23,7 +23,7 @@ export class FirebaseService {
     return this.listing;
   }
 
-  addListing(listing){
+  addProduct(listing){
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){

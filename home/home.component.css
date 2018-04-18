@@ -1,0 +1,11 @@
+.jumbotron {
+    background: url('../../../assets/img/cover.jpg') no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    box-shadow: inset 500px 500px rgba(0, 0, 0, 0.60);
+}
+.text {
+    color: white;
+}

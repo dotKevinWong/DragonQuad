@@ -4,13 +4,13 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-listings',
-  templateUrl: './listings.component.html',
-  styleUrls: ['./listings.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class ListingsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   id:any;
-  listings:any;
+  products:any;
   imageUrl:any;
 
   constructor(
@@ -23,13 +23,13 @@ export class ListingsComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     
-    this.firebaseService.getListings(this.id).subscribe(listings => {
-      console.log(listings);
-      this.listings = listings;
+    this.firebaseService.getProducts(this.id).subscribe(products => {
+      console.log(products);
+      this.products = products;
       
       let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(this.listings.path);
-      storageRef.child(this.listings.path).getDownloadURL().then((url) => {
+      let spaceRef = storageRef.child(this.products.path);
+      storageRef.child(this.products.path).getDownloadURL().then((url) => {
         // Set image url
         this.imageUrl = url;
       }).catch((error) => {

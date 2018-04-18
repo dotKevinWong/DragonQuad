@@ -4,50 +4,50 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class FirebaseService {
-  listings: FirebaseListObservable<any[]>;
-  listing: FirebaseObjectObservable<any>;
+  products: FirebaseListObservable<any[]>;
+  product: FirebaseObjectObservable<any>;
   folder: any;
 
   constructor(private af: AngularFire) {
     this.folder = 'productImages';
-    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>
+    this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
   }
 
-  getListings(id){
-    this.listing = this.af.database.object('/listings/'+id) as FirebaseObjectObservable<Listing>
-    return this.listings;
+  getProducts(id){
+    this.product = this.af.database.object('/products/'+id) as FirebaseObjectObservable<Product>
+    return this.products;
   }
 
-  getListingDetails(id){
-    this.listing = this.af.database.object('/listings/'+id) as FirebaseObjectObservable<Listing>
-    return this.listing;
+  getProductDetails(id){
+    this.product = this.af.database.object('/products/'+id) as FirebaseObjectObservable<Product>
+    return this.product;
   }
 
-  addProduct(listing){
+  addProduct(product){
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
       let path = `/${this.folder}/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
-        listing.image = selectedFile.name;
-        listing.path = path;
-        return this.listings.push(listing);
+        product.image = selectedFile.name;
+        product.path = path;
+        return this.products.push(product);
       });
     }
   }
 
-  updateListing(id, listing){
-    return this.listings.update(id, listing);
+  updateProduct(id, product){
+    return this.products.update(id, product);
   }
 
-  deleteListing(id){
-    return this.listings.remove(id);
+  deleteProduct(id){
+    return this.products.remove(id);
   }
 
 }
 
-interface Listing{
+interface Product{
   $key?:string;
   title?:string;
   type?:string;

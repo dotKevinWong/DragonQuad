@@ -3,11 +3,11 @@ import {FirebaseService} from '../../services/firebase.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
-  selector: 'app-edit-listing',
-  templateUrl: './edit-listing.component.html',
-  styleUrls: ['./edit-listing.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class EditListingComponent implements OnInit {
+export class EditProductComponent implements OnInit {
   id;
   title;
   description;
@@ -26,18 +26,18 @@ export class EditListingComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.firebaseService.getListingDetails(this.id).subscribe(listing => {
-      this.title = listing.title;
-      this.description = listing.description;
-      this.type = listing.type;
-      this.condition = listing.condition;
-      this.price = listing.price;
-      this.payment = listing.payment;
+    this.firebaseService.getProductDetails(this.id).subscribe(product => {
+      this.title = product.title;
+      this.description = product.description;
+      this.type = product.type;
+      this.condition = product.condition;
+      this.price = product.price;
+      this.payment = product.payment;
     });
   }
 
   onEditSubmit(){
-    let listing = {
+    let product = {
         title: this.title,
         description: this.description,
         type: this.type,
@@ -46,9 +46,9 @@ export class EditListingComponent implements OnInit {
         payment: this.payment
     }
 
-    this.firebaseService.updateListing(this.id, listing);
+    this.firebaseService.updateProduct(this.id, product);
 
-    this.router.navigate(['/listings']);
+    this.router.navigate(['/products']);
   }
 
 }

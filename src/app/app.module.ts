@@ -9,11 +9,11 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { ListingsComponent } from './components/listings/listings.component';
+import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ListingComponent } from './components/listing/listing.component';
+import { ProductComponent } from './components/product/product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { EditListingComponent } from './components/edit-listing/edit-listing.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAzwi29rBFn2Tzp4riCWaLRvpGNaafGDqE",
@@ -31,21 +31,21 @@ const firebaseAuthConfig = {
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
-  {path: 'listings', component:ListingsComponent},
-  {path: 'listing/:id', component:ListingComponent},
+  {path: 'products', component:ProductsComponent},
+  {path: 'product/:id', component:ProductComponent},
   {path: 'add-product', component:AddProductComponent},
-  {path: 'edit-listing/:id', component:EditListingComponent}
+  {path: 'edit-product/:id', component:EditProductComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListingsComponent,
+    ProductsComponent,
     NavbarComponent,
-    ListingComponent,
+    ProductComponent,
     AddProductComponent,
-    EditListingComponent
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

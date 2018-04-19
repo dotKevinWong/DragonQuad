@@ -1,8 +1,8 @@
-<a class="btn btn-secondary btn-sm" [routerLink]="['/products']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+<a class="btn btn-secondary btn-sm" [routerLink]="['/events']" role="button"><i class="fas fa-angle-left"></i> Back</a>
 <br>
 <br>
-<h2 class="page-header">Add Product</h2>
-<form (submit)="onAddSubmit()">
+<h2 class="page-header">Edit Event</h2>
+<form (submit)="onEditSubmit()">
   <div class="form-group">
     <label>Title</label>
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
@@ -26,11 +26,6 @@
       <option value="Used">Used</option>
       <option value="As Is">As Is</option>
     </select>
-  </div>
-  <div class="form-group">
-    <i>Only JPEG and PNG files are accepted.</i>
-    <br>
-    <input id="image" name="image" accept="image/x-png,image/jpeg" [(ngModel)]="image" type="file" required>
   </div>
   <div class="form-group">
     <label>Price</label>

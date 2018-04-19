@@ -1,0 +1,28 @@
+<div *ngIf="listing">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/events']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+    <br>
+    <br>
+    <h2 class="page-header">{{event.title}} <small>${{event.price}}</small></h2>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Price:</strong> ${{product.price}}</li>
+                <li class="list-group-item"><strong>Condition:</strong> {{product.condition}}</li>
+                <li class="list-group-item"><strong>Description:</strong> <br>
+            {{product.description}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{product.type}}</li>
+                <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
+                <br>
+                <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-product/'+product.$key]">Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
+</div>

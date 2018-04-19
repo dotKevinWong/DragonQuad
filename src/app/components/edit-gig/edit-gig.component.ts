@@ -3,11 +3,11 @@ import {FirebaseService} from '../../services/firebase.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
-  selector: 'app-edit-product',
-  templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.css']
+  selector: 'app-edit-gig',
+  templateUrl: './edit-gig.component.html',
+  styleUrls: ['./edit-gig.component.css']
 })
-export class EditProductComponent implements OnInit {
+export class EditGigComponent implements OnInit {
   id;
   title;
   description;
@@ -26,18 +26,18 @@ export class EditProductComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.firebaseService.getProductDetails(this.id).subscribe(product => {
-      this.title = product.title;
-      this.description = product.description;
-      this.type = product.type;
-      this.condition = product.condition;
-      this.price = product.price;
-      this.payment = product.payment;
+    this.firebaseService.getGigDetails(this.id).subscribe(gig => {
+      this.title = gig.title;
+      this.description = gig.description;
+      this.type = gig.type;
+      this.condition = gig.condition;
+      this.price = gig.price;
+      this.payment = gig.payment;
     });
   }
 
   onEditSubmit(){
-    let product = {
+    let gig = {
         title: this.title,
         description: this.description,
         type: this.type,
@@ -46,9 +46,9 @@ export class EditProductComponent implements OnInit {
         payment: this.payment
     }
 
-    this.firebaseService.updateProduct(this.id, product);
+    this.firebaseService.updateGig(this.id, gig);
 
-    this.router.navigate(['/products']);
+    this.router.navigate(['/gigs']);
   }
 
 }

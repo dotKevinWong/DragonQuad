@@ -13,13 +13,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { EventsComponent } from './components/events/events.component';
+import { GigsComponent } from './components/gigs/gigs.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
 import { EventComponent } from './components/event/event.component';
+import { GigComponent } from './components/gig/gig.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
+import { AddGigComponent } from './components/add-gig/add-gig.component';
+import { EditGigComponent } from './components/edit-gig/edit-gig.component';
 import { LoginComponent } from './components/login/login.component';
 
 export const firebaseConfig = {
@@ -46,6 +50,10 @@ const appRoutes: Routes = [
   {path: 'event/:id', component: EventComponent},
   {path: 'add-event', component: AddEventComponent},
   {path: 'edit-event/:id', component: EditEventComponent},
+  {path: 'gigs', component: GigsComponent},
+  {path: 'gig/:id', component: GigComponent},
+  {path: 'add-gig', component: AddGigComponent},
+  {path: 'edit-gig/:id', component: EditGigComponent}
 ]
 
 @NgModule({
@@ -54,13 +62,17 @@ const appRoutes: Routes = [
     HomeComponent,
     ProductsComponent,
     EventsComponent,
+    GigsComponent,
     NavbarComponent,
     ProductComponent,
     EventComponent,
+    GigComponent,
     AddProductComponent,
     EditProductComponent,
     AddEventComponent,
     EditEventComponent,
+    AddGigComponent,
+    EditGigComponent,
     LoginComponent
   ],
   imports: [

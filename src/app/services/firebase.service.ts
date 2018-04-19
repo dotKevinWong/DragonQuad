@@ -8,14 +8,19 @@ export class FirebaseService {
   product: FirebaseObjectObservable<any>;
   events: FirebaseListObservable<any[]>;
   event: FirebaseObjectObservable<any>;
+  gigs: FirebaseListObservable<any[]>;
+  gig: FirebaseObjectObservable<any>;
   productFolder: any;
   eventFolder: any;
+  gigFolder: any;
 
   constructor(private af: AngularFire) {
     this.productFolder = 'productImages';
     this.eventFolder = 'eventImages';
+    this.gigFolder = 'gigFolder';
     this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
     this.events = this.af.database.list('/events') as FirebaseListObservable<Event[]>
+    this.gigs = this.af.database.list('/gigs') as FirebaseListObservable<Gig[]>
   }
 
   getProducts(id){
@@ -24,6 +29,10 @@ export class FirebaseService {
 
   getEvents(id){
     return this.events;
+  }
+  
+  getGigs(id){
+    return this.gigs;
   }
 
   getProductDetails(id){
@@ -34,6 +43,11 @@ export class FirebaseService {
   getEventDetails(id){
     this.event = this.af.database.object('/events/'+id) as FirebaseObjectObservable<Event>
     return this.event;
+  }  
+  
+  getGigDetails(id){
+    this.gig = this.af.database.object('/gigs/'+id) as FirebaseObjectObservable<Gig>
+    return this.gig;
   }
 
   addProduct(product){
@@ -64,6 +78,20 @@ export class FirebaseService {
     }
   }
 
+  addGig(gig){
+    // Create root ref
+    let storageRef = firebase.storage().ref();
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      let path = `/${this.gigFolder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        gig.image = selectedFile.name;
+        gig.path = path;
+        return this.gigs.push(gig);
+      });
+    }
+  }
+
   updateProduct(id, product){
     return this.products.update(id, product);
   }
@@ -80,6 +108,14 @@ export class FirebaseService {
     return this.events.remove(id);
   }
 
+  updateGig(id, gig){
+    return this.gigs.update(id, gig);
+  }
+
+  deleteGig(id){
+    return this.gigs.remove(id);
+  }
+
 }
 
 interface Product{
@@ -93,6 +129,16 @@ interface Product{
 }
 
 interface Event{
+  $key?:string;
+  title?:string;
+  type?:string;
+  image?:string;
+  description?:string;
+  payment?:string;
+  condition?:string;
+}
+
+interface Gig{
   $key?:string;
   title?:string;
   type?:string;

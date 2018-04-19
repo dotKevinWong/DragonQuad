@@ -4,11 +4,11 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-gigs',
+  templateUrl: './gigs.component.html',
+  styleUrls: ['./gigs.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class GigsComponent implements OnInit {
   id:any;
   products:any;
   imageUrl:any;
@@ -23,13 +23,13 @@ export class ProductsComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     
-    this.firebaseService.getProducts(this.id).subscribe(products => {
-      console.log(products);
-      this.products = products;
+    this.firebaseService.getGigs(this.id).subscribe(gigs => {
+      console.log(gigs);
+      this.gigs = gigs;
       
       let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(this.products.path);
-      storageRef.child(this.products.path).getDownloadURL().then((url) => {
+      let spaceRef = storageRef.child(this.gigs.path);
+      storageRef.child(this.gigs.path).getDownloadURL().then((url) => {
         // Set image url
         this.imageUrl = url;
       }).catch((error) => {

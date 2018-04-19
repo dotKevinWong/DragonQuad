@@ -3,11 +3,11 @@ import {FirebaseService} from '../../services/firebase.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-add-gig',
+  templateUrl: './add-gig.component.html',
+  styleUrls: ['./add-gig.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddGigComponent implements OnInit {
   title:any;
   description:any;
   type:any;
@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onAddSubmit(){
-    let product = {
+    let gig = {
       title: this.title,
       description: this.description,
       type: this.type,
@@ -34,9 +34,9 @@ export class AddProductComponent implements OnInit {
       payment: this.payment
     }
 
-    this.firebaseService.addProduct(product);
+    this.firebaseService.addGig(gig);
 
-    this.router.navigate(['products']);
+    this.router.navigate(['gigs']);
   }
 
 }

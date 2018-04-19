@@ -4,13 +4,13 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-gig',
+  templateUrl: './gig.component.html',
+  styleUrls: ['./gig.component.css']
 })
-export class ProductComponent implements OnInit {
+export class GigComponent implements OnInit {
   id:any;
-  product: any;
+  gig: any;
   imageUrl:any;
 
   constructor(
@@ -23,12 +23,12 @@ export class ProductComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
 
-    this.firebaseService.getProductDetails(this.id).subscribe(product => {
-      this.product = product;
+    this.firebaseService.getGigDetails(this.id).subscribe(gig => {
+      this.gig = gig;
 
       let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(this.product.path);
-      storageRef.child(this.product.path).getDownloadURL().then((url) => {
+      let spaceRef = storageRef.child(this.gig.path);
+      storageRef.child(this.gig.path).getDownloadURL().then((url) => {
         // Set image url
         this.imageUrl = url;
       }).catch((error) => {
@@ -39,9 +39,9 @@ export class ProductComponent implements OnInit {
   }
 
   onDeleteClick(){
-    this.firebaseService.deleteProduct(this.id);
+    this.firebaseService.deleteGig(this.id);
 
-    this.router.navigate(['/products']);
+    this.router.navigate(['/gigs']);
   }
 
 }

@@ -17,7 +17,7 @@ export class FirebaseService {
   constructor(private af: AngularFire) {
     this.productFolder = 'productImages';
     this.eventFolder = 'eventImages';
-    this.gigFolder = 'gigFolder';
+    this.gigFolder = 'gigImages';
     this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
     this.events = this.af.database.list('/events') as FirebaseListObservable<Event[]>
     this.gigs = this.af.database.list('/gigs') as FirebaseListObservable<Gig[]>

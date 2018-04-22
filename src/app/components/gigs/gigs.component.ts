@@ -10,7 +10,7 @@ import * as firebase from 'firebase';
 })
 export class GigsComponent implements OnInit {
   id:any;
-  products:any;
+  gigs:any;
   imageUrl:any;
 
   constructor(

@@ -8,15 +8,19 @@
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
   </div>
   <div class="form-group">
-    <label>Description</label>
-      <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
-  </div>
-  <div class="form-group">
     <label>Listing Type</label>
-    <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
+    <select class="form-control" type="text" [(ngModel)]="listingType" name="listingType" required>
       <option value="Rent">Rent</option>
       <option value="Sell">Sell</option>
     </select>
+  </div>
+  <div class="form-group">
+    <label>Short Title</label>
+    <input class="form-control" type="text" [(ngModel)]="shortTitle" name="shortTitle" required>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+      <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
   </div>
   <div class="form-group">
     <label>Condition</label>
@@ -26,11 +30,6 @@
       <option value="Used">Used</option>
       <option value="As Is">As Is</option>
     </select>
-  </div>
-  <div class="form-group">
-    <i>Only JPEG and PNG files are accepted.</i>
-    <br>
-    <input id="image" name="image" accept="image/x-png,image/jpeg" [(ngModel)]="image" type="file" required>
   </div>
   <div class="form-group">
     <label>Price</label>
@@ -43,6 +42,15 @@
       <option value="Cash & Payment App">Cash &amp; Payment App</option>
       <option value="Payment App">Payment App</option>
     </select>
+  </div>
+  <div class="form-group">
+    <i>Only JPEG and PNG files are accepted.</i>
+    <br>
+    <input id="image" name="image" accept="image/x-png,image/jpeg" [(ngModel)]="image" type="file" required>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <input class="form-control" type="text" [(ngModel)]="userLocation" name="userLocation" required>
   </div>
   <input type="submit" value="Submit" class="btn btn-success">
 </form>

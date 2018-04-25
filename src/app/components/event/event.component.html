@@ -1,4 +1,4 @@
-<div *ngIf="listing">
+<div *ngIf="event">
     <a class="btn btn-secondary btn-sm" [routerLink]="['/events']" role="button"><i class="fas fa-angle-left"></i> Back</a>
     <br>
     <br>
@@ -10,12 +10,12 @@
         </div>
         <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item"><strong>Price:</strong> ${{product.price}}</li>
-                <li class="list-group-item"><strong>Condition:</strong> {{product.condition}}</li>
+                <li class="list-group-item"><strong>Price:</strong> ${{event.price}}</li>
+                <li class="list-group-item"><strong>Condition:</strong> {{event.condition}}</li>
                 <li class="list-group-item"><strong>Description:</strong> <br>
-            {{product.description}}</li>
-                <li class="list-group-item"><strong>Type:</strong> {{product.type}}</li>
-                <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
+            {{event.description}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{event.type}}</li>
+                <li class="list-group-item"><strong>Payment Accepted:</strong> {{event.payment}}</li>
                 <br>
                 <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
             </ul>

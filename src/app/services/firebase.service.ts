@@ -121,11 +121,14 @@ export class FirebaseService {
 interface Product{
   $key?:string;
   title?:string;
-  type?:string;
+  listingType?:string;
+  shortTitle?:string;
   image?:string;
   description?:string;
   payment?:string;
   condition?:string;
+  price?:string;
+  userLocation?:string;
 }
 
 interface Event{

@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
-import {FirebaseService} from './services/firebase.service';
-import {FlashMessagesModule} from 'angular2-flash-messages';
+import { FirebaseService } from './services/firebase.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,6 +22,9 @@ import { AddEventComponent } from './components/add-event/add-event.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
 import { AddGigComponent } from './components/add-gig/add-gig.component';
 import { EditGigComponent } from './components/edit-gig/edit-gig.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './services/auth.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAzwi29rBFn2Tzp4riCWaLRvpGNaafGDqE",
@@ -39,7 +42,7 @@ const firebaseAuthConfig = {
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
-  {path: 'products', component:ProductsComponent},
+  {path: 'products', component:ProductsComponent, canActivate: [AuthService]},
   {path: 'product/:id', component:ProductComponent},
   {path: 'add-product', component:AddProductComponent},
   {path: 'edit-product/:id', component:EditProductComponent},
@@ -50,7 +53,9 @@ const appRoutes: Routes = [
   {path: 'gigs', component: GigsComponent},
   {path: 'gig/:id', component: GigComponent},
   {path: 'add-gig', component: AddGigComponent},
-  {path: 'edit-gig/:id', component: EditGigComponent}
+  {path: 'edit-gig/:id', component: EditGigComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -70,6 +75,8 @@ const appRoutes: Routes = [
     EditEventComponent,
     AddGigComponent,
     EditGigComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +87,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

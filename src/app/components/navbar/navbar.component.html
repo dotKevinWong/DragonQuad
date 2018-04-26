@@ -9,13 +9,22 @@
               <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/products']">Products</a>
+              <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/products']">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/events']">Events</a>
+              <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/housing']">Housing</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/events']">Events</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/gigs']">Gigs</a>
             </li>
           </ul>
-            <a class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-product']" role="button">Add Product</a>
-            <a class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-event']" role="button">Add Event</a>
+            <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-product']" role="button">Add Product</a>
+            <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-event']" role="button">Add Event</a>
+            <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']" role="button">Login</a>
+            <a *ngIf="(af.auth | async)" class="btn btn-success my-2 my-sm-0" (click)="logout()" role="button">Logout</a>
+            <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/register']" role="button">Register</a>
         </div>
       </nav>

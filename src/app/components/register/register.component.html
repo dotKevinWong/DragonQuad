@@ -1,10 +1,16 @@
 <div class="form-container">
-    <a routerLink="/login" id="goback">Go Back</a>
-    <h2>Join Now!</h2>
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/login']" role="button"><i class="fas fa-angle-left"></i> Go Back</a>
+    <br>
+    <br>
+    <h2>Register</h2>
+    <br>
     <span class="error" *ngIf="error"></span>
     <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="txt" required>
-        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-        <button type="submit" [disabled]="!formData.valid" class="basic-btn"> Create Account</button>
+        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <br>
+        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+        <br>
+        <button type="submit" [disabled]="!formData.valid" class="btn btn-success btn-sm"> Create Account</button>
     </form>
 </div>

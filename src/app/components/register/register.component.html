@@ -6,7 +6,7 @@
     <br>
     <span class="error" *ngIf="error"></span>
     <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" required>
+        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" ng-pattern="/^[A-Za-z0-9._%+-]+@drexel.edu$/" required>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         <br>
         <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>

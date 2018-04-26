@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   error: any;
-  constructor(public af: AngularFire, private router: Router) { 
+  constructor(public af: AngularFire, private router: Router, public flashMessage:FlashMessagesService) { 
     this.af.auth.subscribe(auth => {
     if(auth) {
       this.router.navigateByUrl('/home');
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
       }).then(
       (success) => {
         console.log(success);
+        this.flashMessage.show('Success! You are now logged in!',
+        {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/']);
       }).catch(
         (err) => {

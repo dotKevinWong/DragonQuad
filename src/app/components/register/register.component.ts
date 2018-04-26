@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import {FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   state: string = '';
   error: any;
   
-  constructor(public af: AngularFire, private router: Router) {
+  constructor(public af: AngularFire, private router: Router, public flashMessage:FlashMessagesService) {
   
   }
   
@@ -25,10 +26,14 @@ export class RegisterComponent implements OnInit {
       }).then(
         (success) => {
         console.log(success);
+        this.flashMessage.show('Success! You have successfully created an account!',
+        {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/'])
       }).catch(
       (err) => {
         console.log(err);
+        this.flashMessage.show('Sorry! Account Creation was not successful. You can only create an account if you have a valid @drexel.edu e-mail address!',
+        {cssClass: 'alert-danger', timeout: 10000});
         this.error = err;
       })
     }

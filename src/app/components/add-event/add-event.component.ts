@@ -9,12 +9,13 @@ import {Router} from '@angular/router';
 })
 export class AddEventComponent implements OnInit {
   title:any;
+  shortTitle:any;
   description:any;
   type:any;
-  condition:any;
   price:any;
-  payment:any;
   image:any;
+  eventLocation:any;
+  date:any;
 
   constructor(
     private firebaseService:FirebaseService,
@@ -27,11 +28,12 @@ export class AddEventComponent implements OnInit {
   onAddSubmit(){
     let event = {
       title: this.title,
+      shortTitle: this.shortTitle,
       description: this.description,
       type: this.type,
-      condition:this.condition,
       price: this.price,
-      payment: this.payment
+      eventLocation: this.eventLocation,
+      date: this.date
     }
 
     this.firebaseService.addEvent(event);

@@ -3,6 +3,7 @@
     <br>
     <br>
     <h2 class="page-header">{{event.title}} <small>${{event.price}}</small></h2>
+    <h4 class="page-header">{{event.shortTitle}}</h4>
     <br>
     <div class="row">
         <div class="col-md-4">
@@ -11,11 +12,11 @@
         <div class="col-md-8">
             <ul class="list-group">
                 <li class="list-group-item"><strong>Price:</strong> ${{event.price}}</li>
-                <li class="list-group-item"><strong>Condition:</strong> {{event.condition}}</li>
+                <li class="list-group-item"><strong>Date:</strong> {{event.date}}</li>
                 <li class="list-group-item"><strong>Description:</strong> <br>
-            {{event.description}}</li>
+                {{event.description}}</li>
+                <li class="list-group-item"><strong>Location:</strong> {{event.eventLocation}}</li>
                 <li class="list-group-item"><strong>Type:</strong> {{event.type}}</li>
-                <li class="list-group-item"><strong>Payment Accepted:</strong> {{event.payment}}</li>
                 <br>
                 <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
             </ul>
@@ -23,6 +24,6 @@
     </div>
     <br>
     <br>
-    <a class="btn btn-outline-primary" [routerLink]="['/edit-product/'+product.$key]">Edit</a>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-event/'+event.$key]">Edit</a>
     <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
 </div>

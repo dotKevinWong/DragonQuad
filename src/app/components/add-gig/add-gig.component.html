@@ -8,23 +8,18 @@
     <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
   </div>
   <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" type="text" [(ngModel)]="shortTitle" name="shortTitle" required>
+  </div>
+  <div class="form-group">
     <label>Description</label>
       <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
   </div>
   <div class="form-group">
     <label>Listing Type</label>
     <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
-      <option value="Rent">Rent</option>
-      <option value="Sell">Sell</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Condition</label>
-    <select class="form-control" type="text" [(ngModel)]="condition" name="condition" required>
-      <option value="New">New</option>
-      <option value="Refurbished">Refurbished</option>
-      <option value="Used">Used</option>
-      <option value="As Is">As Is</option>
+      <option value="Requesting">Requesting</option>
+      <option value="Offering">Offering</option>
     </select>
   </div>
   <div class="form-group">
@@ -33,7 +28,7 @@
     <input id="image" name="image" accept="image/x-png,image/jpeg" [(ngModel)]="image" type="file" required>
   </div>
   <div class="form-group">
-    <label>Price</label>
+    <label>Price (per hour)</label>
     <input class="form-control" type="number" step="0.01" value='0.00' placeholder='0.00' [(ngModel)]="price" name="price" required>
   </div>
   <div class="form-group">
@@ -43,6 +38,10 @@
       <option value="Cash & Payment App">Cash &amp; Payment App</option>
       <option value="Payment App">Payment App</option>
     </select>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <input class="form-control" type="text" [(ngModel)]="location" name="location" required>
   </div>
   <input type="submit" value="Submit" class="btn btn-success">
 </form>

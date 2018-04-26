@@ -1,8 +1,9 @@
-<div *ngIf="listing">
-    <a class="btn btn-secondary btn-sm" [routerLink]="['/products']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+<div *ngIf="gig">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/gigs']" role="button"><i class="fas fa-angle-left"></i> Back</a>
     <br>
     <br>
-    <h2 class="page-header">{{product.title}} <small>${{product.price}}</small></h2>
+    <h2 class="page-header">{{gig.title}} <small>${{gig.price}}</small></h2>
+    <h4 class="page-header">{{gig.shortTitle}}</h4>
     <br>
     <div class="row">
         <div class="col-md-4">
@@ -10,12 +11,12 @@
         </div>
         <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item"><strong>Price:</strong> ${{product.price}}</li>
-                <li class="list-group-item"><strong>Condition:</strong> {{product.condition}}</li>
+                <li class="list-group-item"><strong>Price per Hour:</strong> ${{gig.price}}</li>
                 <li class="list-group-item"><strong>Description:</strong> <br>
-            {{product.description}}</li>
-                <li class="list-group-item"><strong>Type:</strong> {{product.type}}</li>
-                <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
+                {{gig.description}}</li>
+                <li class="list-group-item"><strong>Location:</strong> {{gig.location}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{gig.type}}</li>
+                <li class="list-group-item"><strong>Payment Accepted:</strong> {{gig.payment}}</li>
                 <br>
                 <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
             </ul>
@@ -23,6 +24,6 @@
     </div>
     <br>
     <br>
-    <a class="btn btn-outline-primary" [routerLink]="['/edit-product/'+product.$key]">Edit</a>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-gig/'+gig.$key]">Edit</a>
     <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
 </div>

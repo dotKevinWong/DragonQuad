@@ -3,16 +3,22 @@
     <div class="row" ng-if="$even">
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/gigFolder%2F{{gig.image}}?alt=media&token=7360f644-f180-4225-9513-ccb5d57188cd">
+                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/gigImages%2F{{gig.image}}?alt=media&token=48581642-f45c-4ef7-a2ac-4556402feb8a">
                 <div class="card-body">
                     <strong class="title">{{gig.title}}</strong>
-                    <p class="card-text">{{gig.description}}</p>
+                    <p class="card-text">{{gig.shortTitle}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div><i class="fas fa-angle-double-right"></i> {{gig.type}}</div>
+                        <div>
+                            <strong class="text">${{gig.price}}/hour</strong>     <small     class="text-muted">- {{gig.payment}}</small>
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/gig/'+gig.$key]">View</button>
                         </div>
                         <div>
-                            <strong class="text">${{gig.price}}</strong>     <small     class="text-muted">- {{gig.payment}}</small>
+                            <small class="text"><i class="fas fa-location-arrow"></i> {{gig.location}}</small>
                         </div>
                     </div>
                 </div>

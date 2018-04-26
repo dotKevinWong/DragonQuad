@@ -25,6 +25,7 @@ import { EditGigComponent } from './components/edit-gig/edit-gig.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAzwi29rBFn2Tzp4riCWaLRvpGNaafGDqE",
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
   {path: 'add-gig', component: AddGigComponent, canActivate: [AuthService]},
   {path: 'edit-gig/:id', component: EditGigComponent, canActivate: [AuthService]},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'how-it-works', component: HowItWorksComponent}
 ]
 
 @NgModule({
@@ -77,6 +79,7 @@ const appRoutes: Routes = [
     EditGigComponent,
     LoginComponent,
     RegisterComponent,
+    HowItWorksComponent,
   ],
   imports: [
     BrowserModule,

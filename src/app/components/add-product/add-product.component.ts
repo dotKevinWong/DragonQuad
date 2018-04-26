@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
   price:any;
   payment:any;
   image:any;
-  location:any;
+  userLocation:any;
 
   constructor(
     private firebaseService:FirebaseService,
@@ -35,7 +35,7 @@ export class AddProductComponent implements OnInit {
       condition:this.condition,
       price: this.price,
       payment: this.payment,
-      userLocation: this.location
+      userLocation: this.userLocation
     }
 
     this.firebaseService.addProduct(product);

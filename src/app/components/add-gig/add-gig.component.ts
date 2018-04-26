@@ -9,12 +9,13 @@ import {Router} from '@angular/router';
 })
 export class AddGigComponent implements OnInit {
   title:any;
+  shortTitle:any;
   description:any;
   type:any;
-  condition:any;
   price:any;
   payment:any;
   image:any;
+  location:any;
 
   constructor(
     private firebaseService:FirebaseService,
@@ -27,11 +28,12 @@ export class AddGigComponent implements OnInit {
   onAddSubmit(){
     let gig = {
       title: this.title,
+      shortTitle: this.shortTitle,
       description: this.description,
       type: this.type,
-      condition:this.condition,
       price: this.price,
-      payment: this.payment
+      payment: this.payment,
+      location: this.location
     }
 
     this.firebaseService.addGig(gig);

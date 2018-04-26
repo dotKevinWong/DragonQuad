@@ -3,6 +3,7 @@
     <br>
     <br>
     <h2 class="page-header">{{product.title}} <small>${{product.price}}</small></h2>
+    <h4 class="page-header">{{product.shortTitle}}</h4>
     <br>
     <div class="row">
         <div class="col-md-4">
@@ -14,7 +15,9 @@
                 <li class="list-group-item"><strong>Condition:</strong> {{product.condition}}</li>
                 <li class="list-group-item"><strong>Description:</strong> <br>
             {{product.description}}</li>
-                <li class="list-group-item"><strong>Type:</strong> {{product.type}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{product.listingType}}</li>
+                <li class="list-group-item"><strong>Price:</strong> {{product.price}}</li>
+                <li class="list-group-item"><strong>Price:</strong> {{product.userLocation}}</li>
                 <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
                 <br>
                 <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>

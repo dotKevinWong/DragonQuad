@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  email: any;
+  password: any;
   state: string = '';
   error: any;
   

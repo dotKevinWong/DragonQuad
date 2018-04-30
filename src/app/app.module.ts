@@ -26,6 +26,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAzwi29rBFn2Tzp4riCWaLRvpGNaafGDqE",
@@ -80,6 +82,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HowItWorksComponent,
+    ProfileComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,9 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
+  email: any;
+  password: any;
   error: any;
   constructor(public af: AngularFire, private router: Router, public flashMessage:FlashMessagesService) { 
     this.af.auth.subscribe(auth => {

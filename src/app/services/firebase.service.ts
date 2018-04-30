@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import * as firebase from 'firebase';
 
 @Injectable()
@@ -13,14 +15,18 @@ export class FirebaseService {
   productFolder: any;
   eventFolder: any;
   gigFolder: any;
+  userId: string;
 
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, private db: AngularFireDatabase) {
     this.productFolder = 'productImages';
     this.eventFolder = 'eventImages';
     this.gigFolder = 'gigImages';
     this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
     this.events = this.af.database.list('/events') as FirebaseListObservable<Event[]>
     this.gigs = this.af.database.list('/gigs') as FirebaseListObservable<Gig[]>
+    this.af.auth.subscribe(user => {
+      if(user) this.userId = user.uid
+    })
   }
 
   getProducts(id){
@@ -59,6 +65,7 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         product.image = selectedFile.name;
         product.path = path;
+        product.userId = this.userId
         return this.products.push(product);
       });
     }

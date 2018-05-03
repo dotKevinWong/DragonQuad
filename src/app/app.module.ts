@@ -10,14 +10,18 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
+import { HousingComponent } from './components/housing/housing.component';
 import { EventsComponent } from './components/events/events.component';
 import { GigsComponent } from './components/gigs/gigs.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
+import { ListingComponent } from './components/listing/listing.component';
 import { EventComponent } from './components/event/event.component';
 import { GigComponent } from './components/gig/gig.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { AddHousingComponent } from './components/add-housing/add-housing.component';
+import { EditHousingComponent } from './components/edit-housing/edit-housing.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
 import { AddGigComponent } from './components/add-gig/add-gig.component';
@@ -49,6 +53,10 @@ const appRoutes: Routes = [
   {path: 'product/:id', component:ProductComponent, canActivate: [AuthService]},
   {path: 'add-product', component:AddProductComponent, canActivate: [AuthService]},
   {path: 'edit-product/:id', component:EditProductComponent, canActivate: [AuthService]},
+  {path: 'housing', component:HousingComponent, canActivate: [AuthService]},
+  {path: 'listing/:id', component:ListingComponent, canActivate: [AuthService]},
+  {path: 'add-housing', component:AddHousingComponent, canActivate: [AuthService]},
+  {path: 'edit-housing/:id', component:EditHousingComponent, canActivate: [AuthService]},
   {path: 'events', component: EventsComponent, canActivate: [AuthService]},
   {path: 'event/:id', component: EventComponent, canActivate: [AuthService]},
   {path: 'add-event', component: AddEventComponent, canActivate: [AuthService]},
@@ -68,14 +76,18 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ProductsComponent,
+    HousingComponent,
     EventsComponent,
     GigsComponent,
     NavbarComponent,
     ProductComponent,
+    ListingComponent,
     EventComponent,
     GigComponent,
     AddProductComponent,
     EditProductComponent,
+    AddHousingComponent,
+    EditHousingComponent,
     AddEventComponent,
     EditEventComponent,
     AddGigComponent,

@@ -8,20 +8,25 @@ import * as firebase from 'firebase';
 export class FirebaseService {
   products: FirebaseListObservable<any[]>;
   product: FirebaseObjectObservable<any>;
+  housing: FirebaseListObservable<any[]>;
+  listing: FirebaseObjectObservable<any>;
   events: FirebaseListObservable<any[]>;
   event: FirebaseObjectObservable<any>;
   gigs: FirebaseListObservable<any[]>;
   gig: FirebaseObjectObservable<any>;
   productFolder: any;
+  housingFolder: any;
   eventFolder: any;
   gigFolder: any;
   userId: string;
 
   constructor(private af: AngularFire, private db: AngularFireDatabase) {
     this.productFolder = 'productImages';
+    this.housingFolder = 'housingImages';
     this.eventFolder = 'eventImages';
     this.gigFolder = 'gigImages';
     this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
+    this.housing = this.af.database.list('/housing') as FirebaseListObservable<Listing[]>
     this.events = this.af.database.list('/events') as FirebaseListObservable<Event[]>
     this.gigs = this.af.database.list('/gigs') as FirebaseListObservable<Gig[]>
     this.af.auth.subscribe(user => {
@@ -31,6 +36,10 @@ export class FirebaseService {
 
   getProducts(id){
     return this.products;
+  }
+  
+  getHousing(id){
+    return this.housing;
   }
 
   getEvents(id){
@@ -44,6 +53,11 @@ export class FirebaseService {
   getProductDetails(id){
     this.product = this.af.database.object('/products/'+id) as FirebaseObjectObservable<Product>
     return this.product;
+  }
+
+  getListingDetails(id){
+    this.listing = this.af.database.object('/housing/'+id) as FirebaseObjectObservable<Listing>
+    return this.listing;
   }
     
   getEventDetails(id){
@@ -67,6 +81,21 @@ export class FirebaseService {
         product.path = path;
         product.userId = this.userId
         return this.products.push(product);
+      });
+    }
+  }
+
+  addHousing(listing){
+    // Create root ref
+    let storageRef = firebase.storage().ref();
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      let path = `/${this.housingFolder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        listing.image = selectedFile.name;
+        listing.path = path;
+        listing.userId = this.userId
+        return this.housing.push(listing);
       });
     }
   }
@@ -108,6 +137,14 @@ export class FirebaseService {
   deleteProduct(id){
     return this.products.remove(id);
   }
+
+  updateListing(id, listing){
+    return this.housing.update(id, listing);
+  }
+
+  deleteListing(id){
+    return this.housing.remove(id);
+  }
   
   updateEvent(id, event){
     return this.events.update(id, event);
@@ -128,6 +165,19 @@ export class FirebaseService {
 }
 
 interface Product{
+  $key?:string;
+  title?:string;
+  listingType?:string;
+  shortTitle?:string;
+  image?:string;
+  description?:string;
+  payment?:string;
+  condition?:string;
+  price?:string;
+  userLocation?:string;
+}
+
+interface Listing{
   $key?:string;
   title?:string;
   listingType?:string;

@@ -1,0 +1,44 @@
+<a class="btn btn-secondary btn-sm" [routerLink]="['/events']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+<br>
+<br>
+<h2 class="page-header">Add Event</h2>
+<form (submit)="onAddSubmit()">
+  <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+  </div>
+  <div class="form-group">
+    <label>Short Title</label>
+    <input class="form-control" type="text" [(ngModel)]="shortTitle" name="shortTitle" required>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+      <textarea class="form-control" rows="10" [(ngModel)]="description" name="description" required></textarea>
+  </div>
+  <div class="form-group">
+    <label>Listing Type</label>
+    <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
+      <option value="Club">Club Event</option>
+      <option value="Fraternity">Fratnerity</option>
+      <option value="Sorority">Sorority</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Event Location</label>
+    <input class="form-control" type="text" [(ngModel)]="eventLocation" name="eventLocation" required>
+  </div>
+  <div class="form-group">
+    <label>Date</label>
+    <input class="form-control" type="date" [(ngModel)]="date" name="date" required>
+  </div>
+  <div class="form-group">
+    <i>Only JPEG and PNG files are accepted.</i>
+    <br>
+    <input id="image" name="image" accept="image/x-png,image/jpeg" [(ngModel)]="image" type="file" required>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" type="number" step="0.01" value='0.00' placeholder='0.00' [(ngModel)]="price" name="price" required>
+  </div>
+  <input type="submit" value="Submit" class="btn btn-success">
+</form>

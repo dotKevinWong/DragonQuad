@@ -25,6 +25,7 @@
             </li>
           </ul>
             <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-product']" role="button">Add Product</a>
+            <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-housing']" role="button">Add Housing</a>
             <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-event']" role="button">Add Event</a>
             <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-gig']" role="button">Add Gig</a>
             <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']" role="button">Login</a>

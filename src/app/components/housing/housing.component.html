@@ -1,0 +1,30 @@
+<div *ngFor="let listing of housing" [routerLink]="[listing.$key]" >
+<div ng-repeat="listing in housing">
+    <div class="row" ng-if="$even">
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.image}}?alt=media&token=7278be64-f015-45fb-9ff6-3b24e2a7e8b1">
+                <div class="card-body">
+                    <strong class="title">{{listing.title}}</strong>
+                    <br>
+                    <p class="card-text">{{listing.shortTitle}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div><i class="fas fa-angle-double-right"></i> {{listing.listingType}}</div>
+                        <div>
+                            <strong class="text">${{listing.price}}</strong>     <small     class="text-muted">- {{listing.payment}}</small>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/listing/'+listing.$key]">View</button>
+                        </div>
+                    <div>
+                        <small class="text"><i class="fas fa-location-arrow"></i> {{listing.userLocation}}</small>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

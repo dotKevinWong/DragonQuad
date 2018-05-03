@@ -59,7 +59,8 @@ const appRoutes: Routes = [
   {path: 'edit-gig/:id', component: EditGigComponent, canActivate: [AuthService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'how-it-works', component: HowItWorksComponent}
+  {path: 'how-it-works', component: HowItWorksComponent},
+  {path: 'profile', component: ProfileComponent}
 ]
 
 @NgModule({

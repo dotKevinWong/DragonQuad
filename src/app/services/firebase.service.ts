@@ -80,6 +80,7 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         event.image = selectedFile.name;
         event.path = path;
+        event.userId = this.userId
         return this.events.push(event);
       });
     }
@@ -94,6 +95,7 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         gig.image = selectedFile.name;
         gig.path = path;
+        gig.userId = this.userId
         return this.gigs.push(gig);
       });
     }

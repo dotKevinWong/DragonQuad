@@ -30,5 +30,8 @@
             <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']" role="button">Login</a>
             <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" style="color:white;" (click)="logout()" role="button">Logout</a>
             <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/register']" role="button">Register</a>
+            <li class="nav-item">
+            <a *ngIf="(af.auth | async)" [routerLink]="['/profile']" style="color:white;" class="btn btn-outline-secondary">
+            <img src="https://static1.squarespace.com/static/58fb0155d1758eec4bb612b0/t/5a662961f9619a1761ff4a30/1516644709050/Kevin+Wong+Potrait.jpg?format=300w" width=24px class="profile-image"> &nbsp;Profile</a>
         </div>
       </nav>

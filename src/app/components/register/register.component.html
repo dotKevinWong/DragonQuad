@@ -6,10 +6,13 @@
     <br>
     <span class="error" *ngIf="error"></span>
     <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" ng-pattern="/^[A-Za-z0-9._%+-]+@drexel.edu$/" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@drexel.edu" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. You must use a @drexel.edu e-mail address.</small>
         <br>
-        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        <small id="passwordHelp" class="form-text text-muted">Your password must contain at least one number, one uppercase letter, and at least 8 or more characters.</small>
+        <br>
+        <i class="fas fa-check" *ngIf="formData.valid" color="green"></i>&nbsp;<small *ngIf="formData.valid">You can now sign up!</small>
         <br>
         <button type="submit" [disabled]="!formData.valid" class="btn btn-success btn-sm"> Create Account</button>
     </form>

@@ -1,5 +1,5 @@
-<div *ngFor="let listing of housing" [routerLink]="[listing.$key]" >
-<div ng-repeat="listing in housing">
+<div *ngFor="let listing of listings" [routerLink]="[listing.$key]" >
+<div ng-repeat="listing in listings">
     <div class="row" ng-if="$even">
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">

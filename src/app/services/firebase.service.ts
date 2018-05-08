@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 export class FirebaseService {
   products: FirebaseListObservable<any[]>;
   product: FirebaseObjectObservable<any>;
-  housing: FirebaseListObservable<any[]>;
+  listings: FirebaseListObservable<any[]>;
   listing: FirebaseObjectObservable<any>;
   events: FirebaseListObservable<any[]>;
   event: FirebaseObjectObservable<any>;
@@ -26,7 +26,7 @@ export class FirebaseService {
     this.eventFolder = 'eventImages';
     this.gigFolder = 'gigImages';
     this.products = this.af.database.list('/products') as FirebaseListObservable<Product[]>
-    this.housing = this.af.database.list('/housing') as FirebaseListObservable<Listing[]>
+    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>
     this.events = this.af.database.list('/events') as FirebaseListObservable<Event[]>
     this.gigs = this.af.database.list('/gigs') as FirebaseListObservable<Gig[]>
     this.af.auth.subscribe(user => {
@@ -38,8 +38,8 @@ export class FirebaseService {
     return this.products;
   }
   
-  getHousing(id){
-    return this.housing;
+  getListings(id){
+    return this.listings;
   }
 
   getEvents(id){
@@ -56,7 +56,7 @@ export class FirebaseService {
   }
 
   getListingDetails(id){
-    this.listing = this.af.database.object('/housing/'+id) as FirebaseObjectObservable<Listing>
+    this.listing = this.af.database.object('/listings/'+id) as FirebaseObjectObservable<Listing>
     return this.listing;
   }
     
@@ -74,7 +74,7 @@ export class FirebaseService {
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-      let path = `/${this.productFolder}/${selectedFile.name}`;
+      let path = `/${this.productFolder}/${this.userId}${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         product.image = selectedFile.name;
@@ -85,17 +85,17 @@ export class FirebaseService {
     }
   }
 
-  addHousing(listing){
+  addListing(listing){
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-      let path = `/${this.housingFolder}/${selectedFile.name}`;
+      let path = `/${this.housingFolder}/${this.userId}${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         listing.image = selectedFile.name;
         listing.path = path;
         listing.userId = this.userId
-        return this.housing.push(listing);
+        return this.listings.push(listing);
       });
     }
   }
@@ -104,7 +104,7 @@ export class FirebaseService {
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-      let path = `/${this.eventFolder}/${selectedFile.name}`;
+      let path = `/${this.eventFolder}/${this.userId}${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         event.image = selectedFile.name;
@@ -119,7 +119,7 @@ export class FirebaseService {
     // Create root ref
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-      let path = `/${this.gigFolder}/${selectedFile.name}`;
+      let path = `/${this.gigFolder}/${this.userId}${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         gig.image = selectedFile.name;
@@ -139,11 +139,11 @@ export class FirebaseService {
   }
 
   updateListing(id, listing){
-    return this.housing.update(id, listing);
+    return this.listings.update(id, listing);
   }
 
   deleteListing(id){
-    return this.housing.remove(id);
+    return this.listings.remove(id);
   }
   
   updateEvent(id, event){
@@ -180,14 +180,11 @@ interface Product{
 interface Listing{
   $key?:string;
   title?:string;
-  listingType?:string;
-  shortTitle?:string;
+  type?:string;
   image?:string;
   description?:string;
   payment?:string;
   condition?:string;
-  price?:string;
-  userLocation?:string;
 }
 
 interface Event{

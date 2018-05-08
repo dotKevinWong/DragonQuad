@@ -23,10 +23,10 @@ export class ProductsComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     
-    this.firebaseService.getProducts(this.id).subscribe(products => {
-      console.log(products);
-      this.products = products;
-      
+     this.firebaseService.getProducts(this.id).subscribe(products => { 
+       console.log(products);
+       this.products = products;
+       
       let storageRef = firebase.storage().ref();
       let spaceRef = storageRef.child(this.products.path);
       storageRef.child(this.products.path).getDownloadURL().then((url) => {

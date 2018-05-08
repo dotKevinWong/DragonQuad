@@ -14,7 +14,7 @@ export class AddHousingComponent implements OnInit {
   type:any;
   price:any;
   image:any;
-  housingLocation:any;
+  eventLocation:any;
   date:any;
 
   constructor(
@@ -32,11 +32,11 @@ export class AddHousingComponent implements OnInit {
       description: this.description,
       type: this.type,
       price: this.price,
-      housingLocation: this.housingLocation,
+      housingLocation: this.eventLocation,
       date: this.date
     }
 
-    this.firebaseService.addHousing(listing);
+    this.firebaseService.addListing(listing);
 
     this.router.navigate(['housing']);
   }

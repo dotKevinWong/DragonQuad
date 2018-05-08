@@ -10,7 +10,7 @@ import * as firebase from 'firebase';
 })
 export class HousingComponent implements OnInit {
   id:any;
-  housing:any;
+  listings:any;
   imageUrl:any;
 
   constructor(
@@ -23,13 +23,13 @@ export class HousingComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     
-    this.firebaseService.getHousing(this.id).subscribe(housing => {
-      console.log(housing);
-      this.housing = housing;
+    this.firebaseService.getListings(this.id).subscribe(listings => {
+      console.log(listings);
+      this.listings = listings;
       
       let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(this.housing.path);
-      storageRef.child(this.housing.path).getDownloadURL().then((url) => {
+      let spaceRef = storageRef.child(this.listings.path);
+      storageRef.child(this.listings.path).getDownloadURL().then((url) => {
         // Set image url
         this.imageUrl = url;
       }).catch((error) => {

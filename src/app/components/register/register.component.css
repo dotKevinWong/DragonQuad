@@ -1,0 +1,15 @@
+input[type="text"]:valid {
+    color: green;
+}
+
+input[type="text"]:invalid {
+    color: red;
+}
+
+input[type="password"]:valid {
+    color: green;
+}
+
+input[type="password"]:invalid {
+    color: red;
+}

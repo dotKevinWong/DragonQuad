@@ -180,11 +180,16 @@ interface Product{
 interface Listing{
   $key?:string;
   title?:string;
-  type?:string;
-  image?:string;
+  shortTitle?:string;
   description?:string;
-  payment?:string;
-  condition?:string;
+  type?:string;
+  address?:string;
+  price?:string;
+  date?:string;
+  image?:string;
+  bedroom?:string;
+  bathroom?:string;
+  sqft?:string;
 }
 
 interface Event{

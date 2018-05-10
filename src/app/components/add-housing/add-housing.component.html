@@ -4,8 +4,8 @@
 <h2 class="page-header">Add Housing</h2>
 <form (submit)="onAddSubmit()">
   <div class="form-group">
-    <label>Title</label>
-    <input class="form-control" type="text" [(ngModel)]="title" name="title" required>
+    <label>Address</label>
+    <input class="form-control" rows="2" type="text" [(ngModel)]="address" name="address" required>
   </div>
   <div class="form-group">
     <label>Short Title</label>
@@ -18,18 +18,46 @@
   <div class="form-group">
     <label>Listing Type</label>
     <select class="form-control" type="text" [(ngModel)]="type" name="type" required>
-      <option value="Club">Club Event</option>
-      <option value="Fraternity">Fratnerity</option>
-      <option value="Sorority">Sorority</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Condo">Condo</option>
+      <option value="Sublet">Sublet</option>
     </select>
   </div>
   <div class="form-group">
-    <label>Event Location</label>
-    <input class="form-control" type="text" [(ngModel)]="eventLocation" name="eventLocation" required>
+    <label>Bedrooms</label>
+    <select class="form-control" type="text" [(ngModel)]="bedroom" name="type" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>      
+    </select>
   </div>
   <div class="form-group">
-    <label>Date</label>
+    <label>Bedrooms</label>
+    <select class="form-control" type="text" [(ngModel)]="bathroom" name="type" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>      
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Date Available</label>
     <input class="form-control" type="date" [(ngModel)]="date" name="date" required>
+  </div>
+  <div class="form-group">
+    <label>Square Feet</label>
+    <input class="form-control" type="text" [(ngModel)]="sqft" name="title">
   </div>
   <div class="form-group">
     <i>Only JPEG and PNG files are accepted.</i>

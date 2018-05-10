@@ -1,9 +1,10 @@
-<div *ngIf="product">
-    <a class="btn btn-secondary btn-sm" [routerLink]="['/products']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+<div *ngIf="listing">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/housing']" role="button"><i class="fas fa-angle-left"></i> Back</a>
     <br>
     <br>
-    <h2 class="page-header">{{product.title}} <small>${{product.price}}</small></h2>
-    <h4 class="page-header">{{product.shortTitle}}</h4>
+    <h2 class="page-header">{{listing.title}} &nbsp;&nbsp;<small>${{listing.price}}/month</small></h2>
+    <h4 class="page-header">{{listing.shortTitle}}</h4>
+    <h4 class="page-header">{{listing.address}}</h4>
     <br>
     <div class="row">
         <div class="col-md-4">
@@ -11,14 +12,15 @@
         </div>
         <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item"><strong>Price:</strong> ${{product.price}}</li>
-                <li class="list-group-item"><strong>Condition:</strong> {{product.condition}}</li>
+                <li class="list-group-item"><strong>Type:</strong> {{listing.type}}</li>
+                <li class="list-group-item"><strong>Price:</strong> ${{listing.price}}/month</li>
+                <li class="list-group-item"><strong>Bedroom(s):</strong> {{listing.bedroom}}</li>
+                <li class="list-group-item"><strong>Bathroom(s):</strong> {{listing.bathroom}}</li>
                 <li class="list-group-item"><strong>Description:</strong> <br>
-            {{product.description}}</li>
-                <li class="list-group-item"><strong>Type:</strong> {{product.listingType}}</li>
-                <li class="list-group-item"><strong>Price:</strong> {{product.price}}</li>
-                <li class="list-group-item"><strong>Price:</strong> {{product.userLocation}}</li>
-                <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
+            {{listing.description}}</li>
+                <li class="list-group-item"><strong>Address:</strong> {{listing.address}}</li>
+                <li class="list-group-item"><strong>Square Feet:</strong> {{listing.sqft}} sqft</li>
+                <li class="list-group-item"><strong>Date Available:</strong> {{listing.date}} - YYYY/MM/DD</li>
                 <br>
                 <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
             </ul>
@@ -26,6 +28,6 @@
     </div>
     <br>
     <br>
-    <a class="btn btn-outline-primary" [routerLink]="['/edit-product/'+product.$key]">Edit</a>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-listing/'+listing.$key]">Edit</a>
     <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
 </div>

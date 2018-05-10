@@ -8,14 +8,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-housing.component.css']
 })
 export class AddHousingComponent implements OnInit {
-  title:any;
   shortTitle:any;
   description:any;
   type:any;
   price:any;
   image:any;
-  eventLocation:any;
+  address:any;
   date:any;
+  bedroom:any;
+  bathroom:any;
+  sqft:any;
 
   constructor(
     private firebaseService:FirebaseService,
@@ -27,13 +29,15 @@ export class AddHousingComponent implements OnInit {
 
   onAddSubmit(){
     let listing = {
-      title: this.title,
       shortTitle: this.shortTitle,
       description: this.description,
       type: this.type,
       price: this.price,
-      housingLocation: this.eventLocation,
-      date: this.date
+      address: this.address,
+      date: this.date,
+      bedroom: this.bedroom,
+      bathroom: this.bathroom,
+      sqft: this.sqft
     }
 
     this.firebaseService.addListing(listing);

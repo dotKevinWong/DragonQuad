@@ -16,3 +16,33 @@
     </div>
 <br>
 <h2>Your Listings: </h2>
+<div *ngFor="let product of products" [routerLink]="[product.$key]">
+<div ng-repeat="product in products">
+    <div class="row" ng-if="$even">
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.userId}}{{product.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43">
+                <div class="card-body">
+                    <strong class="title">{{product.title}}</strong>
+                    <br>
+                    <p class="card-text">{{product.shortTitle}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div><i class="fas fa-angle-double-right"></i> {{product.listingType}}</div>
+                        <div>
+                            <strong class="text">${{product.price}}</strong>     <small     class="text-muted">- {{product.payment}}</small>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/product/'+product.$key]">View</button>
+                        </div>
+                    <div>
+                        <small class="text"><i class="fas fa-location-arrow"></i> {{product.userLocation}}</small>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -37,7 +37,7 @@ export class AddHousingComponent implements OnInit {
       date: this.date,
       bedroom: this.bedroom,
       bathroom: this.bathroom,
-      sqft: this.sqft
+      sqft: this.sqft,
     }
 
     this.firebaseService.addListing(listing);

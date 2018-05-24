@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { FirebaseService } from './services/firebase.service';
+import { SearchService } from './services/search.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { AuthService } from './services/auth.service';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { SearchComponent } from './components/search/search.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAzwi29rBFn2Tzp4riCWaLRvpGNaafGDqE",
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'how-it-works', component: HowItWorksComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'search', component: SearchComponent}
 ]
 
 @NgModule({
@@ -97,6 +100,7 @@ const appRoutes: Routes = [
     HowItWorksComponent,
     ProfileComponent,
     EditProfileComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,7 +111,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [FirebaseService, AuthService],
+  providers: [FirebaseService, AuthService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

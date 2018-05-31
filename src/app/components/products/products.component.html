@@ -1,56 +1,39 @@
+<input type="text" (keydown)="search($event)" placeholder="Search products..." class="form-control">
+
+<div *ngIf="products?.length < 1">
+<hr>
+    <p>No results found :/</p>
+</div>
+
 <div *ngFor="let product of products" [routerLink]="[product.$key]">
     <div ng-repeat="product in products">
+        <br>
+        <br>
         <div class="media">
-          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="128x128" class="mr-2 rounded" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.userId}}{{product.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43" data-holder-rendered="true" style="width: 128px; height: 128px;">
-          <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="128x128" class="mr-2 rounded" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.userId}}{{product.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43" data-holder-rendered="true" style="width: 256px; height: '100%';">
+          <div class="media-body pb-3 mb-0">
             <div class="d-flex justify-content-between align-items-center w-100">
               <a [routerLink]="['/product/'+product.$key]"><strong class="text">{{product.title}}</strong></a>
               <strong>${{product.price}}</strong>
-            </div>
+              </div>
               <div class="d-flex justify-content-between align-items-center w-100">
                   <span>{{product.shortTitle}}</span>
                   <span>{{product.payment}}</span>
               </div>
               <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
               <div>
               <small class="text"><i class="fas fa-location-arrow"></i> {{product.userLocation}}</small>
             <br>
-              <i class="fas fa-angle-double-right"></i> {{product.listingType}}
-            </div>
-        </div>
-        <br>
-    </div>
-</div>
-    
-    
-    <!---
-    <div class="row" ng-if="$even">
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.userId}}{{product.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43">
-                <div class="card-body">
-                    <strong class="title"></strong>
-                    <br>
-                    <p class="card-text">{{product.shortTitle}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div><i class="fas fa-angle-double-right"></i> {{product.listingType}}</div>
-                        <div>
-                            <strong class="text">${{product.price}}</strong>     <small     class="text-muted">- {{product.payment}}</small>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/product/'+product.$key]">View</button>
-                        </div>
-                    <div>
-                        <small class="text"><i class="fas fa-location-arrow"></i> {{product.userLocation}}</small>
-                    </div>
-                    </div>
-                </div>
+              <small><i class="fas fa-angle-double-right"></i> {{product.listingType}}</small>
             </div>
         </div>
     </div>
 </div>
-</div>
-
--->

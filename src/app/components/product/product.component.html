@@ -20,7 +20,10 @@
                 <li class="list-group-item"><strong>Price:</strong> {{product.userLocation}}</li>
                 <li class="list-group-item"><strong>Payment Accepted:</strong> {{product.payment}}</li>
                 <br>
-                <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
+                <div><a class="btn btn-secondary btn-lg" style="color:white;" href="https://www.paypal.me/{{product.paypal}}/{{product.price}}">Pay Now</a></div>
+                <br>
+                <div><a class="btn btn-primary btn-sm" style="color:white;" href="https://m.me/{{product.messenger}}"><i class="fab fa-facebook-messenger"></i> Connect with @{{product.messenger}} on Facebook Messenger</a></div>
+                
             </ul>
         </div>
     </div>

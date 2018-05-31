@@ -2,7 +2,7 @@
     <a class="btn btn-secondary btn-sm" [routerLink]="['/housing']" role="button"><i class="fas fa-angle-left"></i> Back</a>
     <br>
     <br>
-    <h2 class="page-header">{{listing.title}} &nbsp;&nbsp;<small>${{listing.price}}/month</small></h2>
+    <h2 class="page-header">{{listing.address}} &nbsp;&nbsp;<small>${{listing.price}}/month</small></h2>
     <h4 class="page-header">{{listing.shortTitle}}</h4>
     <h4 class="page-header">{{listing.address}}</h4>
     <br>
@@ -22,12 +22,12 @@
                                                                           width="600"
                                                                           height="450"
                                                                           frameborder="0" style="border:0"
-                                                                          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB_JDiRjg-J7QDbQYpbRPForKegV_Qe7pc&q=phila" allowfullscreen></iframe></li>
+                                                                          [src]="trustedMapUrl" allowfullscreen></iframe></li>
                 <li class="list-group-item"><strong>Address:</strong> {{listing.address}}</li>
                 <li class="list-group-item"><strong>Square Feet:</strong> {{listing.sqft}} sqft</li>
                 <li class="list-group-item"><strong>Date Available:</strong> {{listing.date}} - YYYY/MM/DD</li>
                 <br>
-                <div><a class="btn btn-secondary btn-lg" style="color:white;">Contact Seller</a></div>
+                <div><a class="btn btn-primary btn-sm" style="color:white;" href="https://m.me/{{listing.messenger}}"><i class="fab fa-facebook-messenger"></i> Connect with @{{listing.messenger}} on Facebook Messenger</a></div>
             </ul>
         </div>
     </div>

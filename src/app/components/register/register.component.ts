@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
       }).catch(
       (err) => {
         console.log(err);
-        this.flashMessage.show('Sorry! Account Creation was not successful. You can only create an account if you have a valid @drexel.edu e-mail address!',
+        this.flashMessage.show('Sorry! That e-mail is already in use.',
         {cssClass: 'alert-danger', timeout: 10000});
         this.error = err;
       })

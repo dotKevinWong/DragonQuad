@@ -1,30 +1,39 @@
-<div *ngFor="let listing of listings" [routerLink]="[listing.$key]" >
-<div ng-repeat="listing in listings">
-    <div class="row" ng-if="$even">
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="Image Not Found" style=" height: 300px; width: 100%; object-fit: contain; display: block;" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/housingImages%2F{{listing.userId}}{{listing.image}}?alt=media&token=7278be64-f015-45fb-9ff6-3b24e2a7e8b1">
-                <div class="card-body">
-                    <strong class="title"><i class="fas fa-location-arrow"></i> {{listing.address}}</strong>
-                    <br>
-                    <p class="card-text">{{listing.shortTitle}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div><i class="fas fa-angle-double-right"></i> {{listing.type}}</div>
-                        <div>
-                            <strong class="text">${{listing.price}}</strong>     <small     class="text-muted">- month</small>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/listing/'+listing.$key]">View</button>
-                        </div>
-                    <div>
-                        <small class="text"><i class="fas fa-bath"></i> {{listing.bathroom}} - <i class="fas fa-bed"></i> {{listing.bedroom}}</small>
-                    </div>
-                    </div>
-                </div>
+<input type="text" (keydown)="search($event)" placeholder="Search housing..." class="form-control">
+
+<div *ngIf="listings?.length < 1">
+<hr>
+    <p>No results found :/</p>
+</div>
+
+<div *ngFor="let listing of listings" [routerLink]="[listing.$key]">
+    <div ng-repeat="listing in listings">
+        <br>
+        <br>
+        <div class="media">
+          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="128x128" class="mr-2 rounded" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/housingImages%2F{{listing.userId}}{{listing.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43" data-holder-rendered="true" style="width: 256px; height: '100%';">
+          <div class="media-body pb-3 mb-0">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <a [routerLink]="['/listing/'+listing.$key]"><i class="fas fa-location-arrow"></i> <strong class="text">{{listing.address}}</strong></a>
+              <strong>${{listing.price}}<small class="text-muted"> - month</small></strong>
+              </div>
+              <div class="d-flex justify-content-between align-items-center w-100">
+                  <span>{{listing.shortTitle}}</span>
+                  <span>{{listing.payment}}</span>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div>
+              <small class="text"><i class="fas fa-angle-double-right"></i> {{listing.type}}</small>
+            <br>
+              <small class="text"><i class="fas fa-bath"></i> {{listing.bathroom}}</small>
+            <br>
+              <small><i class="fas fa-bed"></i> {{listing.bedroom}}</small>
             </div>
         </div>
     </div>
-</div>
 </div>

@@ -20,6 +20,28 @@ export class SearchService {
   getEvents(start, end): FirebaseListObservable<any> {
     return this.db.list('/events', {
       query : {
+        orderByChild: 'shortTitle',
+        limitToFirst: 10,
+        startAt: start,
+        endAt: end
+      }
+  });
+}
+
+  getListings(start, end): FirebaseListObservable<any> {
+    return this.db.list('/listings', {
+      query : {
+        orderByChild: 'type',
+        limitToFirst: 10,
+        startAt: start,
+        endAt: end
+      }
+  });
+}
+
+  getGigs(start, end): FirebaseListObservable<any> {
+    return this.db.list('/gigs', {
+      query : {
         orderByChild: 'title',
         limitToFirst: 10,
         startAt: start,
@@ -27,4 +49,5 @@ export class SearchService {
       }
   });
 }
+
 }

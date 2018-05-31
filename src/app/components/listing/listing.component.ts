@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { DomSanitizer } from '@angular/platform-browser';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
 
@@ -12,12 +14,21 @@ export class ListingComponent implements OnInit {
   id:any;
   listing: any;
   imageUrl:any;
+  dangerousMapUrl:any;
+  trustedMapUrl:any;
+  listingAddress: any;
 
   constructor(
     private firebaseService: FirebaseService,
     private router:Router,
-    private route:ActivatedRoute
-  ) { }
+    private route:ActivatedRoute,
+    private db:AngularFireDatabase,
+    public sanitizer: DomSanitizer
+  ) { 
+
+    this.dangerousMapUrl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyB_JDiRjg-J7QDbQYpbRPForKegV_Qe7pc&q=' + '3121 Hamilton Ave. Philadelphia, PA 19104';
+    this.trustedMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousMapUrl);
+  }
 
   ngOnInit() {
     // Get ID
